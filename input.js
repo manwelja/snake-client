@@ -1,19 +1,39 @@
 let connection;
 
 const handleUserInput = function(key) {
-  //if CTRL+C, bye bye snakey
-  if (key === '\u0003') {
+  //if CTRL+C, bye bye snakey otherwise
+  //tell the server where snakey should go...
+  switch (key) {
+  case '\u0003':
     console.log('See ya Snakey');
     process.exit();
-  } else if (key === 'w') {
-    //Tell the server where snakey should go...
+    break;
+  case 'w':
     connection.write("Move: up");
-  } else if (key === 'a') {
+    break;
+  case 'a':
     connection.write("Move: left");
-  } else if (key === 's') {
+    break;
+  case 's':
     connection.write("Move: down");
-  } else if (key === 'p') {
+    break;
+  case 'p':
     connection.write("Move: right");
+    break;
+  case 'l':
+    connection.write("Say: watch me go");
+    break;
+  case 'm':
+    connection.write("Say: Woo Hoo");
+    break;
+  case 'n':
+    connection.write("Say: Uh Oh");
+    break;
+  case 'b':
+    connection.write("Say: Are we there yet?");
+    break;
+  default:
+    break;
   }
 };
 
