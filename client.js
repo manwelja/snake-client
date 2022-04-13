@@ -7,7 +7,12 @@ const connect = function () {
   });
   
   conn.setEncoding('utf8'); // interpret data as text
-
+  
+  //Print message when connection established
+  conn.on('connect', () => {
+    console.log('Successfully connected to game server');
+  });
+  //Print incoming messages form server
   conn.on('data', (data) => {
     console.log('Server says: ', data);
   });

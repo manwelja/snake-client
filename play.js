@@ -1,5 +1,10 @@
 const {connect} = require('./client');
 
 console.log("Connecting ...");
-connect();
 
+const client = connect();
+
+//Create a snake!
+client.on('connect', () => {
+  client.write("Name: JAM");
+});
