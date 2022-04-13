@@ -22,3 +22,25 @@ client.on('connect', () => {
 // "Move: down" - move down one square (unless facing up)
 // "Move: left" - move left one square (unless facing right)
 // "Move: right" - move left one square (unless facing left)
+
+const handleUserInput = function(key) {
+  //if CTRL+C, bye bye snakey
+  if (key === '\u0003') {
+    process.exit();
+  }
+};
+
+//Set up interface to handle user input from stdin
+const setupInput = function() {
+  const stdin = process.stdin;
+  stdin.setRawMode(true);
+  stdin.setEncoding('utf8');
+  stdin.resume();
+  //when input received, call handleUserInput
+  stdin.on('data', (key) => {
+    handleUserInput(key);
+  });
+  return stdin;
+};
+
+setupInput();
