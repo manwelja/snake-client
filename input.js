@@ -1,3 +1,4 @@
+const { MOVE_UP_KEY, MOVE_LEFT_KEY, MOVE_DOWN_KEY, MOVE_RIGHT_KEY, KEY_MESSAGES } = require("./constants");
 let connection;
 
 const handleUserInput = function(key) {
@@ -8,29 +9,29 @@ const handleUserInput = function(key) {
     console.log('See ya Snakey');
     process.exit();
     break;
-  case 'w':
+  case MOVE_UP_KEY:
     connection.write("Move: up");
     break;
-  case 'a':
+  case MOVE_LEFT_KEY:
     connection.write("Move: left");
     break;
-  case 's':
+  case MOVE_DOWN_KEY:
     connection.write("Move: down");
     break;
-  case 'p':
+  case MOVE_RIGHT_KEY:
     connection.write("Move: right");
     break;
   case 'l':
-    connection.write("Say: watch me go");
+    connection.write("Say: " + KEY_MESSAGES.l);
     break;
   case 'm':
-    connection.write("Say: Woo Hoo");
+    connection.write("Say: " + KEY_MESSAGES.m);
     break;
   case 'n':
-    connection.write("Say: Uh Oh");
+    connection.write("Say" + KEY_MESSAGES.n);
     break;
   case 'b':
-    connection.write("Say: Are we there yet?");
+    connection.write("Say: " + KEY_MESSAGES.b);
     break;
   default:
     break;
